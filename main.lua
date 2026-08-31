@@ -3,15 +3,16 @@ require "set"
 require "grid"
 
 function love.load()
-    grid = Grid:new(game.coords.offset.x, game.coords.offset.y, game.coords.scale, 35, 35)
+    grid = Grid:new(2, 4)
 end 
 
 function love.update(dt)
-    grid:update(dt)
+    --grid:update(dt)
 end
 
 function love.draw()
     cartesian_coordinates_transform()
+    love.graphics.translate(game.window.width / 2, game.window.height / 2)
     love.graphics.setBlendMode("replace")
     grid:draw()
 end
