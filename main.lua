@@ -13,11 +13,16 @@ function love.update(dt)
 end
 
 function love.draw()
+    love.graphics.push()
+
     cartesian_coordinates_transform()
     love.graphics.translate(game.window.width / 2, game.window.height / 2)
     love.graphics.setBlendMode("replace")
     grid:draw()
     love.graphics.circle("fill", 0, 0, 5)
+
+    love.graphics.pop()
+    
     ruler:draw()
 end
 

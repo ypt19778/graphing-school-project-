@@ -8,13 +8,17 @@ function Ruler:new()
     return ruler
 end
 
+local function retMouseCoords()
+    return snap(love.mouse.getX(), game.coords.scale), snap(love.mouse.getY(), game.coords.scale)
+end
+
 function Ruler:registerStart()
     if not self.active then self.active = true end
-    self.x1, self.y1 = love.mouse.getPosition()
+    self.x1, self.y1 = retMouseCoords()
 end
 
 function Ruler:registerEnd()
-    self.x2, self.y2 = love.mouse.getPosition()
+    self.x2, self.y2 = retMouseCoords()
 end
 
 function Ruler:update(dt)

@@ -12,7 +12,7 @@ function dist(x1, y1, x2, y2)
     return math.sqrt((x2 - x1)^2 + (y2 - y1)^2)
 end
 
-function roundat(num, swappableInteger)
-    local target = swappableInteger or 1
-    return math.floor(num / target + 0.5) * target
+function snap(value, grid)
+    grid = grid or 1
+    return math.floor((value + (grid / 2)) / 10) * 10
 end
